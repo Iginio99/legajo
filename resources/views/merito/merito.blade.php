@@ -10,16 +10,16 @@
             </tr>
         </thead>
         <tbody class="bg-blue-500 border-b border-blue-400">
-            @forelse ($titulos as $titulo)
+            @forelse ($meritos as $merito)
                 <tr class="bg-blue-500 border-b border-blue-400">
-                    <td class="py-4 px-6">{{ $idTitulo++ }}</td>
-                    <td class="py-4 px-6">{{ $titulo->denominacion }}</td>
-                    <td class="py-4 px-6">{{ $titulo->institucion }}</td>
-                    <td class="py-4 px-6">{{ $titulo->year }}</td>
+                    <td class="py-4 px-6">{{ $idMerito++ }}</td>
+                    <td class="py-4 px-6">{{ $merito->denominacion }}</td>
+                    <td class="py-4 px-6">{{ $merito->institucion }}</td>
+                    <td class="py-4 px-6">{{ $merito->year }}</td>
                     <td class="py-4 px-6">
                         <div class="grid grid-cols-2">
                             <div>
-                                <a href="{{ $titulo->documento }}" target="_blank">
+                                <a href="{{ $merito->documento }}" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,11 +47,11 @@
             </tr>
         </tbody>
     </table>
-    <x-primary-button v-if=!estado_titulo @click="addTitulos" class="bg-sky-500/50">Nuevo Titulo</x-primary-button>
+    <x-primary-button v-if=!estado_merito @click="addMeritos" class="bg-sky-500/50">Nuevo Merito</x-primary-button>
    
-    <form action="{{ url('add-titulo') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('add-merito') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div v-if=estado_titulo class="flex space-x-4 items-center mt-4">
+        <div v-if=estado_merito class="flex space-x-4 items-center mt-4">
 
             <div>
                 <x-input-label for="denominacion" :value="__('Denominacion')" />
@@ -77,6 +77,6 @@
             <x-primary-button>Agregar</x-primary-button>
         </div>
     </form>
-    <x-primary-button v-if=estado_titulo @click="removeTitulos">Cancelar</x-primary-button>
+    <x-primary-button v-if=estado_merito @click="removeMeritos">Cancelar</x-primary-button>
 
 </div>

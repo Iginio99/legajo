@@ -3,23 +3,23 @@
         <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
             <tr>
                 <th scope="col" class="py-3 px-6">ID</th>
-                <th scope="col" class="py-3 px-6">Denominación</th>
+                <th scope="col" class="py-3 px-6">Condición</th>
                 <th scope="col" class="py-3 px-6">Institución</th>
                 <th scope="col" class="py-3 px-6">Año</th>
                 <th scope="col" class="py-3 px-6 text-center">Pdf</th>
             </tr>
         </thead>
         <tbody class="bg-blue-500 border-b border-blue-400">
-            @forelse ($titulos as $titulo)
+            @forelse ($otros as $otro)
                 <tr class="bg-blue-500 border-b border-blue-400">
-                    <td class="py-4 px-6">{{ $idTitulo++ }}</td>
-                    <td class="py-4 px-6">{{ $titulo->denominacion }}</td>
-                    <td class="py-4 px-6">{{ $titulo->institucion }}</td>
-                    <td class="py-4 px-6">{{ $titulo->year }}</td>
+                    <td class="py-4 px-6">{{ $idOtro++ }}</td>
+                    <td class="py-4 px-6">{{ $otro->otro }}</td>
+                    <td class="py-4 px-6">{{ $otro->institucion }}</td>
+                    <td class="py-4 px-6">{{ $otro->year }}</td>
                     <td class="py-4 px-6">
                         <div class="grid grid-cols-2">
                             <div>
-                                <a href="{{ $titulo->documento }}" target="_blank">
+                                <a href="{{ $otro->documento }}" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,19 +47,19 @@
             </tr>
         </tbody>
     </table>
-    <x-primary-button v-if=!estado_titulo @click="addTitulos" class="bg-sky-500/50">Nuevo Titulo</x-primary-button>
+    <x-primary-button v-if=!estado_otro @click="addOtros" class="bg-sky-500/50">Agregar Otras Experiencias</x-primary-button>
    
-    <form action="{{ url('add-titulo') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('add-otro') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div v-if=estado_titulo class="flex space-x-4 items-center mt-4">
+        <div v-if=estado_otro class="flex space-x-4 items-center mt-4">
 
             <div>
-                <x-input-label for="denominacion" :value="__('Denominacion')" />
-                <x-text-input id="denominacion" class="block mt-1 w-full" type="text" name="denominacion"
-                    :value="old('denominacion')" required autofocus />
+                <x-input-label for="otro" :value="__('Condición')" />
+                <x-text-input id="ptro" class="block mt-1 w-full" type="text" name="otro"
+                    :value="old('otro')" required autofocus />
             </div>
             <div>
-                <x-input-label for="institucion" :value="__('Institucion')" />
+                <x-input-label for="institucion" :value="__('Denominación')" />
                 <x-text-input id="institucion" class="block mt-1 w-full" type="text" name="institucion"
                     :value="old('institucion')" required autofocus />
             </div>
@@ -77,6 +77,6 @@
             <x-primary-button>Agregar</x-primary-button>
         </div>
     </form>
-    <x-primary-button v-if=estado_titulo @click="removeTitulos">Cancelar</x-primary-button>
+    <x-primary-button v-if=estado_otro @click="removeOtros">Cancelar</x-primary-button>
 
 </div>

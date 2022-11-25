@@ -11,7 +11,7 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-blue-400">
             <div class="px-4 py-4 bg-blue-400 overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ url('add-docente') }}" method="POST">
+                <form action="{{ url('add-docente') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="flex items-center mt-4">
@@ -70,6 +70,10 @@
                     <div>
                         <x-input-label for="idioma" :value="__('Idiomas')" />
                         <x-text-input id="idioma" class="block mt-1 w-full" type="text" name="idioma" :value="old('idioma')" required autofocus />
+                    </div>
+                    <div>
+                        <x-input-label for="foto" :value="__('Foto')" />
+                        <x-text-input id="foto" class="block mt-1 w-full" type="file" name="foto" :value="old('foto')" autofocus />
                     </div>
                     <x-primary-button class="ml-3">
                         {{ __('Guardar Docente') }}

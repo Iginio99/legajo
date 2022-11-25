@@ -71,6 +71,8 @@ class DocenteFormRequest extends FormRequest
                 'required',
                 'max:255'
             ],
+            'foto' => [
+            ]
         ];
     }
 }

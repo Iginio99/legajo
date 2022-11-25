@@ -23,7 +23,7 @@
             </tr>
         </tbody>
     </table>
-    <x-primary-button v-if=!estado_titulo @click="addGrados">Nuevo Titulo</x-primary-button>
+    <x-primary-button v-if=!estado_titulo @click="addGrados">Nuevo Grado</x-primary-button>
     <form action="{{ url('add-grado') }}" method="POST">
         @csrf
         <div v-if=estado_grado class="flex items-center mt-4">

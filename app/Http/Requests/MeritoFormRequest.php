@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormacionFormRequest extends FormRequest
+class MeritoFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,6 @@ class FormacionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'formacion' => [
-                'max:255'
-            ],
             'denominacion' => [
                 'required',
                 'max:255'
@@ -38,8 +35,6 @@ class FormacionFormRequest extends FormRequest
             'year' => [
                 'required',
                 'max:255'
-            ],
-            'otro' => [
             ],
             'documento' => [
             ],

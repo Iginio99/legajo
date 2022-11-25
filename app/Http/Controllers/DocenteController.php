@@ -21,6 +21,14 @@ class DocenteController extends Controller
     public function store(DocenteFormRequest $request){
         $data = $request->validated();
         
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+            $data['foto'] = $destinationPath . $filename;
+        }
+
         $docente = Docente::create($data);
         return redirect('/add-docente')->with('message','Docente agregado');
     }

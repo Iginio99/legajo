@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formaciones', function (Blueprint $table) {
+        Schema::create('experiencias', function (Blueprint $table) {
             $table->id();
-            $table->string('formacion');
-            $table->string('denominacion');
+            $table->string('tipo');
             $table->string('institucion');
             $table->string('year');
             $table->string('otro')->nullable($value = true);
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formaciones');
+        Schema::dropIfExists('experiencias');
     }
 };

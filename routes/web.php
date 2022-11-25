@@ -46,5 +46,38 @@ Route::controller(App\Http\Controllers\FormacionController::class)->group(functi
     Route::delete('/delete-docente/{docente_id}','destroy');*/
 });
 
+Route::controller(App\Http\Controllers\ExperienciaController::class)->group(function () {
+
+    Route::get('/experiencias', 'index');
+    Route::post('/add-expDocente', 'storeDocente');
+    Route::post('/add-superior', 'storeSuperior');
+    Route::post('/add-conferencista', 'storeConferencista');
+    Route::post('/add-otro', 'storeOtro');
+    /*Route::get('/add-docente', 'create');
+    Route::get('/edit-docente/{docente_id}','edit');
+    Route::put('/update-docente/.{docente_id}', 'update');
+    Route::delete('/delete-docente/{docente_id}','destroy');*/
+});
+
+Route::controller(App\Http\Controllers\ProduccionController::class)->group(function () {
+
+    Route::get('/producciones', 'index');
+    Route::post('/add-investigacion', 'storeInvestigacion');
+    Route::post('/add-exposicion', 'storeExposicion');
+    /*Route::get('/add-docente', 'create');
+    Route::get('/edit-docente/{docente_id}','edit');
+    Route::put('/update-docente/.{docente_id}', 'update');
+    Route::delete('/delete-docente/{docente_id}','destroy');*/
+});
+
+Route::controller(App\Http\Controllers\MeritoController::class)->group(function () {
+
+    Route::get('/meritos', 'index');
+    Route::post('/add-merito', 'store');
+});
 
 
+Route::controller(App\Http\Controllers\PrintController::class)->group(function () {
+
+    Route::get('/impresion', 'print');
+});

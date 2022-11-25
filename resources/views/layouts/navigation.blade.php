@@ -12,16 +12,12 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @role('admin')
                         <x-nav-link :href="url('add-docente')" :active="request()->routeIs('add-docente')">
                             {{ __('Agregar Docente') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                            {{ __('Registrar Docente') }}
                         </x-nav-link>
                     @endrole
                     @role('docente|admin')
@@ -31,6 +27,15 @@
                     @endrole
                     <x-nav-link :href="url('formaciones')" :active="request()->routeIs('formaciones')">
                         {{ __('Formacion Profesional') }}
+                    </x-nav-link>
+                    <x-nav-link :href="url('experiencias')" :active="request()->routeIs('experiencias')">
+                        {{ __('Experiencia Profesional') }}
+                    </x-nav-link>
+                    <x-nav-link :href="url('producciones')" :active="request()->routeIs('producciones')">
+                        {{ __('Producción Intelectual') }}
+                    </x-nav-link>
+                    <x-nav-link :href="url('meritos')" :active="request()->routeIs('meritos')">
+                        {{ __('Méritos y Reconocimientos') }}
                     </x-nav-link>
                 </div>
             </div>

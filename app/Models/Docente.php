@@ -22,6 +22,7 @@ class Docente extends Model
         'sistema_pension',
         'cuspp',
         'correo',
-        'idioma'
+        'idioma',
+        'foto'
     ];
 }

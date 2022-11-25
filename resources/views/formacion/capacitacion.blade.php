@@ -25,7 +25,7 @@
             </tr>
         </tbody>
     </table>
-    <x-primary-button v-if=!estado_capacitacion @click="addCapacitaciones">Nuevo Titulo</x-primary-button>
+    <x-primary-button v-if=!estado_capacitacion @click="addCapacitaciones">Nueva Capacitación</x-primary-button>
     <form action="{{ url('add-capacitacion') }}" method="POST">
         @csrf
         <div v-if=estado_capacitacion class="flex items-center mt-4">

@@ -32,6 +32,15 @@ class FormacionController extends Controller
         $data = $request->validated();
         $data['formacion'] = 'titulo';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $formacion = Formacion::create($data);
 
         return redirect('/formaciones')->with('message', 'Titulo agregado');
@@ -54,7 +63,7 @@ class FormacionController extends Controller
         $data['idDocente'] = 1;
         $formacion = Formacion::create($data);
 
-        return redirect('/formaciones')->with('message', 'Titulo agregado');
+        return redirect('/formaciones')->with('message', 'Diplomado agregado');
     }
 
     public function storeCapacitacion(FormacionFormRequest $request)
@@ -64,6 +73,7 @@ class FormacionController extends Controller
         $data['idDocente'] = 1;
         $formacion = Formacion::create($data);
 
-        return redirect('/formaciones')->with('message', 'Titulo agregado');
+        return redirect('/formaciones')->with('message', 'Capacitacion agregado');
     }
+
 }

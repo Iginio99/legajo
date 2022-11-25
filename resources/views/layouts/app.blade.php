@@ -12,11 +12,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <style>
-            .glyphicon-check, .glyphicon-unchecked{
-              cursor: pointer;
-            }
-          </style>
+          
     </head>
     <body class="font-sans antialiased">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

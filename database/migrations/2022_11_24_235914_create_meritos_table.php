@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formaciones', function (Blueprint $table) {
+        Schema::create('meritos', function (Blueprint $table) {
             $table->id();
-            $table->string('formacion');
             $table->string('denominacion');
             $table->string('institucion');
             $table->string('year');
-            $table->string('otro')->nullable($value = true);
             $table->string('documento')->nullable($value = true);
             $table->unsignedBigInteger('idDocente');
             $table->timestamps();
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formaciones');
+        Schema::dropIfExists('meritos');
     }
 };

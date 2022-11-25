@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('cuspp');
             $table->string('correo');
             $table->string('idioma');
+            $table->string('foto')->nullable($value = true);
             $table->timestamps();
         });
     }
