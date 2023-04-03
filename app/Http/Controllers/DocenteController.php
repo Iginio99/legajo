@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DocenteFormRequest;
 use App\Models\Docente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DocenteController extends Controller
 {
@@ -20,7 +21,7 @@ class DocenteController extends Controller
 
     public function store(DocenteFormRequest $request){
         $data = $request->validated();
-        
+        $data['idUsuario'] = Auth::user()->id;
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $destinationPath = 'images/fotos/';
@@ -55,7 +56,8 @@ class DocenteController extends Controller
             'sistema_pension' => $data['sistema_pension'],
             'cuspp' => $data['cuspp'],
             'correo' => $data['correo'],
-            'idioma' => $data['idioma']
+            'idioma' => $data['idioma'],
+            'idUsuario' => 1,
         ]);
 
         return redirect('/docentes')->with('message','Datos actualizados');

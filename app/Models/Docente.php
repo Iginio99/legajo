@@ -23,6 +23,7 @@ class Docente extends Model
         'cuspp',
         'correo',
         'idioma',
-        'foto'
+        'foto',
+        'idUsuario'
     ];
 }

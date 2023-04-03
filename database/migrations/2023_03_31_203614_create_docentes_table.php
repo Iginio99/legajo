@@ -28,7 +28,10 @@ return new class extends Migration
             $table->string('correo');
             $table->string('idioma');
             $table->string('foto')->nullable($value = true);
+            $table->unsignedBigInteger('idUsuario');
             $table->timestamps();
+
+            $table->foreign('idUsuario')->references('id')->on('users');
         });
     }
 
