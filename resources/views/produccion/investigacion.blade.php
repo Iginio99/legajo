@@ -1,6 +1,6 @@
 <div class="py-4 px-4 overflow-hidden shadow-sm sm:rounded-lg">
-    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-        <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
+    <table class="w-full text-sm text-left text-black dark:text-black">
+        <thead class="text-xs text-white uppercase bg-blue-400 dark:text-black">
             <tr>
                 <th scope="col" class="py-3 px-6">ID</th>
                 <th scope="col" class="py-3 px-6">Denominación</th>
@@ -8,9 +8,9 @@
                 <th scope="col" class="py-3 px-6 text-center">Pdf</th>
             </tr>
         </thead>
-        <tbody class="bg-blue-500 border-b border-blue-400">
+        <tbody class="bg-gray-100 border-b border-black">
             @forelse ($investigaciones as $investigacion)
-                <tr class="bg-blue-500 border-b border-blue-400">
+                <tr class="bg-gray-100 border-b border-black">
                     <td class="py-4 px-6">{{ $idInvestigacion++ }}</td>
                     <td class="py-4 px-6">{{ $investigacion->institucion }}</td>
                     <td class="py-4 px-6">{{ $investigacion->year }}</td>

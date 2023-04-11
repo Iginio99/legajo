@@ -1,18 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-black leading-tight">
             {{ __('Agregar Docente') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-1">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <x-successs-status class="mb-4" :status="session('status')" />
             
-            <div class="py-4 px-4 shadow-sm sm:rounded-lg">
-                <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-                    <thead class="text-xs text-center text-white uppercase bg-blue-600 dark:text-white">
+            <div class="py-2 px-2 shadow-sm sm:rounded-lg">
+                <table class="w-full text-sm text-left text-black dark:text-black">
+                    <thead class="text-xs text-center text-black uppercase bg-blue-400 dark:text-black">
                         <tr>
                             <th scope="col" class="py-3 px-6">ID</th>
                             <th scope="col" class="py-3 px-6">Nombres</th>
@@ -25,9 +25,9 @@
                             <th scope="col" class="py-3 px-6">Borrar</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-blue-500 border-b border-blue-400">
+                    <tbody class="bg-white border-b border-black">
                         @forelse ($docentes as $docente)
-                            <tr class="bg-blue-500 border-b border-blue-400">
+                            <tr class="bg-gray-100 border-b border-black">
                                 <td class="py-4 px-6">{{ $docente->id }}</td>
                                 <td class="py-4 px-6">{{ $docente->nombre }}</td>
                                 <td class="py-4 px-6">{{ $docente->apellido }}</td>

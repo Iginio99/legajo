@@ -1,21 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Agregar Docente') }}
+            {{ __('Editar Datos') }}
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-blue-400">
+    <div class="py-12 bg-gray-100">
 
         <x-successs-status class="mb-4" :status="session('status')" />
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-blue-400">
-            <div class="px-4 py-4 bg-blue-400 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-100">
+            <div class="px-4 py-4 bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
                 <form action="{{ url('update-docente/.').$docente->id }}" method="POST">
                     @csrf
                     @method('PUT')
                     
-                    <div class="flex items-center mt-4">
+                    <div class="flex items-center mt-4 py-15">
                         <div>
                             <x-input-label for="nombre" :value="__('Nombres')" />
                             <x-text-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="$docente->nombre" autofocus />

@@ -6,8 +6,8 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </x-slot>
 
-    <div class="py-12 bg-sky-100">
-        <div id="app-titulo" class="max-w-7xl mx-auto bg-sky-100 sm:px-6 lg:px-8">
+    <div class="py-12">
+        <div id="app-titulo" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <x-successs-status class="mb-4" :status="session('status')" />
 

@@ -1,23 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Agregar Docente') }}
+        <h2 class="font-semibold text-xl text-black-800 leading-tight border-black">
         </h2>
     </x-slot>
-
-    <div class="py-12 bg-blue-400">
-
+    
+    <div class="py-12">
+        
         <x-successs-status class="mb-4" :status="session('status')" />
-
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-blue-400">
-            <div class="px-4 py-4 bg-blue-400 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="max-w-7xl mx-auto left-30px sm:px-6 lg:px-8 bg-white">
+            <div class="px-4 py-4 bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
                 <form action="{{ url('add-docente') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="flex items-center mt-4">
+                    <div class="flex items-center mt-2">
                         <div>
                             <x-input-label for="nombre" :value="__('Nombres')" />
-                            <x-text-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus />
+                            <x-text-input id="nombre" class="block mt-1 w-full tracking-wide " type="text" name="nombre" :value="old('nombre')" required autofocus />
                             <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
                         </div>
                         <div>
@@ -65,7 +63,7 @@
                                        
                     <div>
                         <x-input-label for="correo" :value="__('Correo electrónico')" />
-                        <x-text-input id="correo" class="form-input px-4 py-3 rounded-full" type="email" name="correo" :value="old('correo')" requiredCorreo autofocus />
+                        <x-text-input id="correo" class="block mt-1 w-full" type="email" name="correo" :value="old('correo')" requiredCorreo autofocus />
                     </div>
                     <div>
                         <x-input-label for="idioma" :value="__('Idiomas')" />
@@ -75,7 +73,7 @@
                         <x-input-label for="foto" :value="__('Foto')" />
                         <x-text-input id="foto" class="block mt-1 w-full" type="file" name="foto" :value="old('foto')" autofocus />
                     </div>
-                    <x-primary-button class="ml-3">
+                    <x-primary-button class="mt-5 ml">
                         {{ __('Guardar Docente') }}
                     </x-primary-button>
                 </form>

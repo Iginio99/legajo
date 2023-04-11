@@ -1,51 +1,31 @@
-<nav x-data="{ open: false }" class="bg-sky-100 border-b border-gray-100">
+<nav x-data="{ open: false }" class="py-10 bg-sky-100 border-b border-black">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <nav class="font-bold text-black flex items-center justify-between">
+                            <img src="https://pedagogicochimbote.edu.pe/wp-content/uploads/2021/05/cropped-cropped-cropped-logo-con-nombre-costado-1.png"
+                                class="h-14" inline />
+                            <ul class="flex justify-end">
+                            </ul>
+                        </nav>
                     </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    
-                    @role('admin')
-                        <x-nav-link :href="url('add-docente')" :active="request()->routeIs('add-docente')">
-                            {{ __('Agregar Docente') }}
-                        </x-nav-link>
-                    @endrole
-                    @role('docente|admin')
-                        <x-nav-link :href="url('docentes')" :active="request()->routeIs('docentes')">
-                            {{ __('Docentes') }}
-                        </x-nav-link>
-                    @endrole
-                    <x-nav-link :href="url('formaciones')" :active="request()->routeIs('formaciones')">
-                        {{ __('Formacion Profesional') }}
-                    </x-nav-link>
-                    <x-nav-link :href="url('experiencias')" :active="request()->routeIs('experiencias')">
-                        {{ __('Experiencia Profesional') }}
-                    </x-nav-link>
-                    <x-nav-link :href="url('producciones')" :active="request()->routeIs('producciones')">
-                        {{ __('Producción Intelectual') }}
-                    </x-nav-link>
-                    <x-nav-link :href="url('meritos')" :active="request()->routeIs('meritos')">
-                        {{ __('Méritos y Reconocimientos') }}
-                    </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-6 space-x-50">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            class="font-bold flex items-center text-sm font-medium text-black hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>                            
                             <div>{{ Auth::user()->name }}</div>
-
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
