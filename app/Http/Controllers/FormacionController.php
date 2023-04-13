@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormacionFormRequest;
 use App\Models\Docente;
 use App\Models\Formacion;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FormacionController extends Controller
 {
     public function index()
     {
         $idTitulo = 1; $idDiplomado = 1; $idCapacitacion = 1;
-        $titulos = Formacion::all()->where('formacion', 'titulo');
-        $grados = Formacion::all()->where('formacion', 'grado');
-        $diplomados = Formacion::all()->where('formacion', 'diplomado');
-        $capacitaciones = Formacion::all()->where('formacion', 'capacitacion');
+        $idDocente = DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $titulos = Formacion::all()->where('formacion', 'titulo')->where('idDocente', $idDocente);
+        $grados = Formacion::all()->where('formacion', 'grado')->where('idDocente', $idDocente);
+        $diplomados = Formacion::all()->where('formacion', 'diplomado')->where('idDocente', $idDocente);
+        $capacitaciones = Formacion::all()->where('formacion', 'capacitacion')->where('idDocente', $idDocente);
 
         return view('formacion.index', compact(
             'titulos',
@@ -31,7 +34,8 @@ class FormacionController extends Controller
     {
         $data = $request->validated();
         $data['formacion'] = 'titulo';
-        $data['idDocente'] = 1;
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
 
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');
@@ -50,7 +54,8 @@ class FormacionController extends Controller
     {
         $data = $request->validated();
         $data['formacion'] = 'grado';
-        $data['idDocente'] = 1;
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
 
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');
@@ -69,7 +74,8 @@ class FormacionController extends Controller
     {
         $data = $request->validated();
         $data['formacion'] = 'grado';
-        $data['idDocente'] = 1;
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
 
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');
@@ -88,7 +94,8 @@ class FormacionController extends Controller
     {
         $data = $request->validated();
         $data['formacion'] = 'diplomado';
-        $data['idDocente'] = 1;
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
 
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');
@@ -107,8 +114,8 @@ class FormacionController extends Controller
     {
         $data = $request->validated();
         $data['formacion'] = 'capacitacion';
-        $data['idDocente'] = 1;
-
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');
             $destinationPath = 'images/fotos/';

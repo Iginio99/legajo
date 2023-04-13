@@ -57,7 +57,7 @@ class DocenteController extends Controller
             'cuspp' => $data['cuspp'],
             'correo' => $data['correo'],
             'idioma' => $data['idioma'],
-            'idUsuario' => 1,
+            'idUsuario' => Auth::user()->id,
         ]);
 
         return redirect('/docentes')->with('message','Datos actualizados');

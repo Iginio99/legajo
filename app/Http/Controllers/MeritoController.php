@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MeritoFormRequest;
 use App\Models\Merito;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MeritoController extends Controller
 {
     public function index()
     {
         $idMerito = 1;
-        $meritos = Merito::all()->where('idDocente', '1');
+        $idDocente = DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $meritos = Merito::all()->where('idDocente', $idDocente);
 
         return view('merito.index', compact('meritos', 'idMerito'));
     }
@@ -19,7 +22,8 @@ class MeritoController extends Controller
     public function store(MeritoFormRequest $request)
     {
         $data = $request->validated();
-        $data['idDocente'] = 1;
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $data['idDocente'] = $idDocente;
 
         if ($request->hasFile('documento')) {
             $file = $request->file('documento');

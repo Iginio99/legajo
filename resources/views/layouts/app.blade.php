@@ -28,11 +28,11 @@
                         <!-- Navigation Links -->
                 <div class=" hidden space-x-12 sm:-my-px sm:ml-10 sm:flex">
 
-                    @role('admin')
+                    
                         <x-nav-link :href="url('add-docente')" :active="request()->routeIs('add-docente')">
-                            {{ __('Agregar Docente') }}
+                            {{ __('Datos personales') }}
                         </x-nav-link>
-                    @endrole
+                    
                     @role('docente|admin')
                         <x-nav-link :href="url('docentes')" :active="request()->routeIs('docentes')">
                             {{ __('Docentes') }}
