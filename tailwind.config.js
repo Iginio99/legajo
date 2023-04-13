@@ -23,8 +23,9 @@ module.exports = {
                 emerald: colors.emerald,
                 indigo: colors.indigo,
                 yellow: colors.yellow,
-                'midnight': '#121063',
-                'purple': '#3f3cbb',
+                'peda2': '#003f6e',
+                'peda': '#4ba7bf',
+                pantano: colors.pantano,
               },
         },
         

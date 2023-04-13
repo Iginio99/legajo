@@ -37,7 +37,7 @@ Route::controller(App\Http\Controllers\FormacionController::class)->group(functi
 
     Route::get('/formaciones', 'index');
     Route::post('/add-titulo', 'storeTitulo');
-    Route::post('/add-grado', 'storeGrado');
+    Route::post('/add-grado', 'storeGrado1');
     Route::post('/add-diplomado', 'storeDiplomado');
     Route::post('/add-capacitacion', 'storeCapacitacion');
     /*Route::get('/add-docente', 'create');

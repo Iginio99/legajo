@@ -47,6 +47,15 @@ class ProduccionController extends Controller
         $data = $request->validated();
         $data['tipo'] = 'exposicion';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $produccion = Produccion::create($data);
 
         return redirect('/producciones')->with('message', 'Diplomado agregado');

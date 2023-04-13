@@ -1,6 +1,7 @@
+<h1 class="font-extrabold text-center py-2 flex text-1xl text-black ">3.4  OTROS (ORGANIZADOR, JURADO, ESPECIALISTA, COORDINADOR, ASESOR, ETC). </h1>
 <div class="py-4 px-4 overflow-hidden shadow-sm sm:rounded-lg">
     <table class="w-full text-sm text-left text-black dark:text-black">
-        <thead class="text-xs text-black uppercase bg-blue-400 dark:text-black">
+        <thead class="text-xs text-white uppercase bg-peda2 dark:text-black">
             <tr>
                 <th scope="col" class="py-3 px-6">ID</th>
                 <th scope="col" class="py-3 px-6">Condición</th>

@@ -52,6 +52,15 @@ class ExperienciaController extends Controller
         $data = $request->validated();
         $data['tipo'] = 'superior';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $experiencia = Experiencia::create($data);
 
         return redirect('/experiencias')->with('message', 'Experiencia superior agregado');
@@ -62,6 +71,15 @@ class ExperienciaController extends Controller
         $data = $request->validated();
         $data['tipo'] = 'conferencista';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $experiencia = Experiencia::create($data);
 
         return redirect('/experiencias')->with('message', 'Conferencista agregado');
@@ -72,6 +90,15 @@ class ExperienciaController extends Controller
         $data = $request->validated();
         $data['tipo'] = 'otro';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $experiencia = Experiencia::create($data);
 
         return redirect('/experiencias')->with('message', 'Otros agregado');

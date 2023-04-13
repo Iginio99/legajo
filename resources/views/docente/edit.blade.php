@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Datos') }}
         </h2>
     </x-slot>
 
@@ -21,11 +20,13 @@
                             <x-text-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="$docente->nombre" autofocus />
                             <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
                         </div>
+                        <div class="px-12 py-1"></div>
                         <div>
                             <x-input-label for="apellido" :value="__('Apellidos')" />
                             <x-text-input id="apellido" class="block mt-1 w-full" type="text" name="apellido" :value="$docente->apellido" autofocus />
                             <x-input-error :messages="$errors->get('apellido')" class="mt-2" />
                         </div>
+                        <div class="px-12 py-12"></div>
                         <div>
                             <x-input-label for="dni" :value="__('DNI')" />
                             <x-text-input id="dni" class="block mt-1 w-full" type="text" name="dni" :value="$docente->dni" autofocus />
@@ -65,14 +66,17 @@
                     </div>
                     <div>
                         <x-input-label for="correo" :value="__('Correo electrónico')" />
-                        <x-text-input id="correo" class="form-input px-4 py-3 rounded-full" type="email" name="correo" :value="$docente->correo" autofocus />
+                        <x-text-input id="correo" class="form-input mt-1 w-full" type="email" name="correo" :value="$docente->correo" autofocus />
                     </div>
                     <div>
                         <x-input-label for="idioma" :value="__('Idiomas')" />
                         <x-text-input id="idioma" class="block mt-1 w-full" type="text" name="idioma" :value="$docente->idioma" autofocus />
                     </div>
+                    <div class="py-5">
+                        
+                    </div>
                     <x-primary-button class="ml-3">
-                        {{ __('Actualizar datos') }}
+                        {{('Actualizar datos')}}
                     </x-primary-button>
                 </form>
             </div>

@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-black leading-tight">
-            {{ __('Agregar Docente') }}
         </h2>
     </x-slot>
 
@@ -12,7 +11,7 @@
             
             <div class="py-2 px-2 shadow-sm sm:rounded-lg">
                 <table class="w-full text-sm text-left text-black dark:text-black">
-                    <thead class="text-xs text-center text-black uppercase bg-blue-400 dark:text-black">
+                    <thead class="text-xs text-center text-white uppercase bg-peda2 dark:text-black">
                         <tr>
                             <th scope="col" class="py-3 px-6">ID</th>
                             <th scope="col" class="py-3 px-6">Nombres</th>
@@ -37,14 +36,17 @@
                                 <td class="py-4 px-6">
                                     <img src="{{ $docente->foto }}">
                                 </td>
-                                <td class="">
-                                    <a href="{{ url('/edit-docente/'.$docente->id) }}" class="btn btn-primary">Editar</a>
+                                <td class="py-4 px-8">
+                                    <a href="{{ url('/edit-docente/'.$docente->id) }}" name="create-outline" class="mx-8">
+                                        <ion-icon name="create-outline"></ion-icon> 
+                                    </a>
                                 </td>
-                                <td class="py-4 px-6">
+                                <td class="py-4 px-8">
                                     <form action="{{ url('delete-docente/'.$docente->id) }}" method="POST">
+
                                         @csrf
                                         @method('DELETE')
-                                        <x-primary-button class="ml-3">Eliminar</x-primary-button>
+                                        <x-primary-button class="ml-2">Eliminar</x-primary-button>
                                     </form>
                                 </td>
                             </tr>

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="py-10 bg-sky-100 border-b border-black">
+<nav x-data="{ open: false }" class="py-8 bg-peda border-b border-black-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-14xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}">
                         <nav class="font-bold text-black flex items-center justify-between">
                             <img src="https://pedagogicochimbote.edu.pe/wp-content/uploads/2021/05/cropped-cropped-cropped-logo-con-nombre-costado-1.png"
-                                class="h-14" inline />
+                                class="h-24" inline />
                             <ul class="flex justify-end">
                             </ul>
                         </nav>
@@ -21,7 +21,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="font-bold flex items-center text-sm font-medium text-black hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            class="font-bold-medium flex items-center text-sm text-black hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                             </svg>                            

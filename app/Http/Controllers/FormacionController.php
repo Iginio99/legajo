@@ -46,11 +46,39 @@ class FormacionController extends Controller
         return redirect('/formaciones')->with('message', 'Titulo agregado');
     }
 
+    public function storeGrado1(FormacionFormRequest $request)
+    {
+        $data = $request->validated();
+        $data['formacion'] = 'grado';
+        $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
+        $formacion = Formacion::create($data);
+
+        return redirect('/formaciones')->with('message', 'Grado agregado');
+    }
+
     public function storeGrado(FormacionFormRequest $request)
     {
         $data = $request->validated();
         $data['formacion'] = 'grado';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $formacion = Formacion::create($data);
 
         return redirect('/formaciones')->with('message', 'Titulo agregado');
@@ -61,6 +89,15 @@ class FormacionController extends Controller
         $data = $request->validated();
         $data['formacion'] = 'diplomado';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $formacion = Formacion::create($data);
 
         return redirect('/formaciones')->with('message', 'Diplomado agregado');
@@ -71,6 +108,15 @@ class FormacionController extends Controller
         $data = $request->validated();
         $data['formacion'] = 'capacitacion';
         $data['idDocente'] = 1;
+
+        if ($request->hasFile('documento')) {
+            $file = $request->file('documento');
+            $destinationPath = 'images/fotos/';
+            $filename = time() . ' ' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('documento')->move($destinationPath, $filename);
+            $data['documento'] = $destinationPath . $filename;
+        }
+
         $formacion = Formacion::create($data);
 
         return redirect('/formaciones')->with('message', 'Capacitacion agregado');
