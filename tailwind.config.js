@@ -24,7 +24,7 @@ module.exports = {
                 indigo: colors.indigo,
                 yellow: colors.yellow,
                 'peda2': '#003f6e',
-                'peda': '#4ba7bf',
+                'peda': '#39b3e6',
                 pantano: colors.pantano,
               },
         },

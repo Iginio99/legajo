@@ -7,6 +7,7 @@
                 <th scope="col" class="py-3 px-6">Evento</th>
                 <th scope="col" class="py-3 px-6">Año</th>
                 <th scope="col" class="py-3 px-6 text-center">Pdf</th>
+                <th scope="col" class="py-3 px-6 text-center">Opciones</th>
             </tr>
         </thead>
         <tbody class=" bg-gray-100 border-b border-black">
@@ -38,6 +39,14 @@
                         </div>
 
                     </td>
+                    <td class="py-4 px-8">
+                        <form action="{{ url('delete-conferencista/'.$conferencista->institucion.'/'.$conferencista->year) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-primary-button class="ml-2">Eliminar</x-primary-button>
+                        </form>
+                    </td>
+                    
                 </tr>
             @empty
             @endforelse

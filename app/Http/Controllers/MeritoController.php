@@ -37,4 +37,12 @@ class MeritoController extends Controller
 
         return redirect('/meritos')->with('message', 'Merito agregado');
     }
+
+    public function destroyMerito($denominacion_merito, $institucion_merito, $year_merito){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idMerito = DB::table('meritos')->where('denominacion', $denominacion_merito)->where('institucion', $institucion_merito)
+            ->where('year', $year_merito)->where('idDocente', $idDocente)->value('id');
+        $merito = Merito::find($idMerito)->delete();
+        return redirect('/meritos')->with('message', 'Merito eliminado');
+    }
 }

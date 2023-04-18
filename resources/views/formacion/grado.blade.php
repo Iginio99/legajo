@@ -8,6 +8,7 @@
                 <th scope="col" class="py-3 px-6">Universidad</th>
                 <th scope="col" class="py-3 px-6">Año</th>
                 <th scope="col" class="py-3 px-6">PDF</th>
+                <th scope="col" class="py-3 px-6">Opciones</th>
             </tr>
         </thead>
         <tbody class="bg-gray-100 border-b border-black">
@@ -38,7 +39,13 @@
                                 </a>
                             </div>
                         </div>
-
+                    </td>
+                    <td class="py-4 px-8">
+                        <form action="{{ url('delete-grado/'.$grado->denominacion.'/'.$grado->institucion.'/'.$grado->year.'/'.$grado->otro) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <x-primary-button class="ml-2">Eliminar</x-primary-button>
+                        </form>
                     </td>
                 </tr>
             @empty

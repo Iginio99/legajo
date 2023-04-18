@@ -51,6 +51,14 @@ class ExperienciaController extends Controller
         return redirect('/experiencias')->with('message', 'Experiencia docente agregado');
     }
 
+    public function destroyExpDocente($institucion_expDocente, $year_expDocente){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idExpDocente = DB::table('experiencias')->where('institucion', $institucion_expDocente)
+            ->where('year', $year_expDocente)->where('idDocente', $idDocente)->value('id');
+        $expDocente = Experiencia::find($idExpDocente)->delete();
+        return redirect('/experiencias')->with('message', 'Experiencia Docente eliminado');
+    }
+
     public function storeSuperior(ExperienciaFormRequest $request)
     {
         $data = $request->validated();
@@ -69,6 +77,14 @@ class ExperienciaController extends Controller
         $experiencia = Experiencia::create($data);
 
         return redirect('/experiencias')->with('message', 'Experiencia superior agregado');
+    }
+
+    public function destroySuperior($institucion_superior, $year_superior){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idSuperior = DB::table('experiencias')->where('institucion', $institucion_superior)
+            ->where('year', $year_superior)->where('idDocente', $idDocente)->value('id');
+        $superior = Experiencia::find($idSuperior)->delete();
+        return redirect('/experiencias')->with('message', 'Experiencia Docente eliminado');
     }
 
     public function storeConferencista(ExperienciaFormRequest $request)
@@ -91,6 +107,14 @@ class ExperienciaController extends Controller
         return redirect('/experiencias')->with('message', 'Conferencista agregado');
     }
 
+    public function destroyConferencista($institucion_conferencista, $year_conferencista){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idConferencista = DB::table('experiencias')->where('institucion', $institucion_conferencista)
+            ->where('year', $year_conferencista)->where('idDocente', $idDocente)->value('id');
+        $conferencista = Experiencia::find($idConferencista)->delete();
+        return redirect('/experiencias')->with('message', 'Experiencia Docente eliminado');
+    }
+
     public function storeOtro(ExperienciaFormRequest $request)
     {
         $data = $request->validated();
@@ -109,5 +133,13 @@ class ExperienciaController extends Controller
         $experiencia = Experiencia::create($data);
 
         return redirect('/experiencias')->with('message', 'Otros agregado');
+    }
+
+    public function destroyOtro($institucion_otro, $year_otro, $otro_otro){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idOtro = DB::table('experiencias')->where('institucion', $institucion_otro)
+            ->where('year', $year_otro)->where('otro', $otro_otro)->where('idDocente', $idDocente)->value('id');
+        $otro = Experiencia::find($idOtro)->delete();
+        return redirect('/experiencias')->with('message', 'Experiencia Docente eliminado');
     }
 }

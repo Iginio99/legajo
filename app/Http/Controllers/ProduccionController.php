@@ -46,6 +46,14 @@ class ProduccionController extends Controller
         return redirect('/producciones')->with('message', 'Investigacion agregada');
     }
 
+    public function destroyInvestigacion($institucion_investigacion, $year_investigacion){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idInvestigacion = DB::table('producciones')->where('institucion', $institucion_investigacion)
+            ->where('year', $year_investigacion)->where('idDocente', $idDocente)->value('id');
+        $investigacion = Produccion::find($idInvestigacion)->delete();
+        return redirect('/producciones')->with('message', 'Investigacion eliminado');
+    }
+
     public function storeExposicion(ProduccionFormRequest $request)
     {
         $data = $request->validated();
@@ -64,6 +72,14 @@ class ProduccionController extends Controller
         $produccion = Produccion::create($data);
 
         return redirect('/producciones')->with('message', 'Exposicion agregada');
+    }
+    
+    public function destroyExposicion($institucion_exposicion, $year_exposicion){
+        $idDocente =  DB::table('docentes')->where('idUsuario', Auth::user()->id)->value('id');
+        $idExposicion = DB::table('producciones')->where('institucion', $institucion_exposicion)
+            ->where('year', $year_exposicion)->where('idDocente', $idDocente)->value('id');
+        $exposicion = Produccion::find($idExposicion)->delete();
+        return redirect('/producciones')->with('message', 'Exposicion eliminada');
     }
 
 }
